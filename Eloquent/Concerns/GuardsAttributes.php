@@ -14,6 +14,13 @@ trait GuardsAttributes
     protected $fillable = [];
 
     /**
+     * The attributes that are searchable.
+     *
+     * @var array
+     */
+    protected $searchable = [];
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array
@@ -38,6 +45,16 @@ trait GuardsAttributes
     }
 
     /**
+     * Get the searchable attributes for the model.
+     *
+     * @return array
+     */
+    public function getSearchable()
+    {
+        return $this->searchable;
+    }
+
+    /**
      * Set the fillable attributes for the model.
      *
      * @param  array  $fillable
@@ -46,6 +63,19 @@ trait GuardsAttributes
     public function fillable(array $fillable)
     {
         $this->fillable = $fillable;
+
+        return $this;
+    }
+
+    /**
+     * Set the searchable attributes for the model.
+     *
+     * @param  array  $searchable
+     * @return $this
+     */
+    public function searchable(array $searchable)
+    {
+        $this->searchable = $searchable;
 
         return $this;
     }
